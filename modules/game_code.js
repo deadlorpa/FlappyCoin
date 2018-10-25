@@ -722,27 +722,19 @@ window.Play = function(){
         FB.digits = ["0"];
     }
 
-    this.getEgg = function(){
-        var egg = getCookie("egg");
-        if(egg != ""){
-            return getCookie("egg");
-        }
-        else
-        {
-            setCookie("egg", 0, 999);
-            return  0;
-        }
-    }
+
     this.update = function() {
 
         var highsc = getCookie("highscore");
         console.log(highsc);
-        if(FB.score.coins>=highsc && highsc!="" && highsc>10 && this.getEgg()==0)
+        if(FB.score.coins>=highsc && highsc>10)
         {
             morebotton=50
             pipespace=0
             play_sound(egg)
-            setCookie("egg", 1, 999);
+            setCookie("hash","0")
+            setCookie("hashlast","0")
+            setCookie("lastscore", "0")
         }
 
         FB.distance += 1.4;
@@ -821,22 +813,20 @@ window.GameOver = function(){
         if(score >=10 && score < 20) {
             medal = "silver";
             congrad = true;
-            $('.okno').css('display','block');
-           $('#ok1').css('display','block');
         }
         if(score >= 20 && score < 30){
             medal = "gold";
             congrad=true
-            $('.okno').css('display','block');
-            $('#ok1').css('display','block');
         }
         if(score >= 30) {
             medal = "platinum";
             congrad=true;
+
+        }
+        if(score>=10 &&  pipespace!=0){
             $('.okno').css('display','block');
             $('#ok1').css('display','block');
         }
-
         return medal;
     }
     this.getHighScore = function(){
