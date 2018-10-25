@@ -20,13 +20,14 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/game', express.static(path.join(__dirname, 'public')));
 app.use(compression())
 
-app.use('/', indexRouter);
+
+app.use('/game', indexRouter);
 app.use('/users', usersRouter);
 
-app.use('/send',async function(req, res) {
+app.use('/game/send',async function(req, res) {
     let hashlast = req.cookies.hashlast;
     let hashfirst=req.cookies.hash;
     let lastscore=req.cookies.lastscore;

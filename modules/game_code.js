@@ -20,12 +20,12 @@ var gamespeed = 3    // скорость игры
 var pipespace = 50;   // 1/2 расстояния между верхней и нижней трубой
 var morebotton = 0;   // добавочная величина, чтобы закрыть промежуток между трубами при pipespace=0
 var pipeinterval = 180; // интервал между трубами
-var soundJump = new Audio("/media/wing.ogg");
-var soundScore = new Audio("/media/point.ogg");
-var soundHit = new Audio("/media/hit.ogg");
-var soundDie = new Audio("/media/die.ogg");
-var soundSwoosh = new Audio("/media/swooshing.ogg");
-var egg = new Audio("/media/die_egg.ogg");
+var soundJump = new Audio("/game/media/wing.ogg");
+var soundScore = new Audio("/game/media/point.ogg");
+var soundHit = new Audio("/game/media/hit.ogg");
+var soundDie = new Audio("/game/media/die.ogg");
+var soundSwoosh = new Audio("/game/media/swooshing.ogg");
+var egg = new Audio("/game/media/die_egg.ogg");
 //http://www.storiesinflight.com/html5/audio.html
 var channel_max = 10; // number of channels
 audiochannels = new Array();
@@ -256,7 +256,7 @@ var FB = {
             FB.Draw.rect(0,0,400,400,FB.gradients.day)
         else
         { var city = new Image();
-        city.src = "/media/bg1.png";
+        city.src = "/game/media/bg1.png";
         FB.Draw.Image(city, 0, 0);}
         // cycle through all entities and render to canvas
         for (i = 0; i < FB.entities.length; i += 1) {
@@ -397,7 +397,7 @@ FB.Cloud = function (x, y) {
 FB.BottomBar = function (x, y, r) {
 
     this.banner = new Image();
-    this.banner.src = "/media/spr_earth.png";
+    this.banner.src = "/game/media/spr_earth.png";
     this.x = x;
     this.y = y;
     this.r = r;
@@ -511,7 +511,7 @@ FB.Pipe = function (x, w) {
 FB.Bird = function () {
 
     this.img = new Image();
-    this.img.src = '/media/bird2.png';
+    this.img.src = '/game/media/bird2.png';
     this.gravity = 0.35;
     this.width = 34;
     this.height = 24;
@@ -662,7 +662,7 @@ FB.Collides = function (bird, pipe) {
 window.Splash = function(){
 
     this.banner = new Image();
-    this.banner.src = "/media/splash.png";
+    this.banner.src = "/game/media/splash.png";
 
     this.init = function(){
         play_sound(soundSwoosh);
@@ -716,7 +716,7 @@ window.Play = function(){
         FB.entities.push(FB.bird);
         for(var n=0;n<10;n++){
             var img = new Image();
-            img.src = "/media/font_small_" + n +'.png';
+            img.src = "/game/media/font_small_" + n +'.png';
             FB.fonts.push(img);
         }
         FB.digits = ["0"];
@@ -852,14 +852,14 @@ window.GameOver = function(){
             play_sound(soundDie);
             that.banner = new Image();
             that.bravebanner = new Image();
-            that.banner.src = "/media/scoreboard.png";
-            that.bravebanner.src = "/media/brave (1).png";//баннер подбадриваниея
+            that.banner.src = "/game/media/scoreboard.png";
+            that.bravebanner.src = "/game/media/brave (1).png";//баннер подбадриваниея
             loosetimes=+1;
             var m = that.getMedal();
             that.medal =  new Image();
-            that.medal.src = '/media/medal_' + m +'.png';
+            that.medal.src = '/game/media/medal_' + m +'.png';
             that.replay = new Image();
-            that.replay.src = "/media/replay.png";
+            that.replay.src = "/game/media/replay.png";
             that.highscore = that.getHighScore() ;
         }, 500);
 
