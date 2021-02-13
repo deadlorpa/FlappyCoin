@@ -6,13 +6,13 @@ html
     meta(property="og:title" content="Flappy Coin!")/
     title= "Flappy Coin!"
     link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css')
-    link(rel='stylesheet', href='/game/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
     script(src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js")
     script(src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js")
     script(src="//yastatic.net/share2/share.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js")
-    script(type="text/javascript" src="/game/javascripts/game.js")
-    script(type="text/javascript" src="/game/javascripts/main.js")
+    script(type="text/javascript" src="/javascripts/game.js")
+    script(type="text/javascript" src="/javascripts/main.js")
 
   body
     div(class='container')
@@ -24,7 +24,7 @@ html
                         div(class='panel-heading')
                             h3(class='heading-title')
                                 div(class='panel-header')
-                                    img(src='/game/media/titel_flappycoin.gif' width='215' height='100')
+                                    img(src='/media/titel_flappycoin.gif' width='215' height='100')
                         div(class='panel-body')
                             p
                                 | Flappy Coin - игра, которая имитирует поведения биткона на бирже (шутка).
@@ -36,7 +36,7 @@ html
                             div(class="ya-share2" data-services="vkontakte,facebook,telegram,twitter" data-url='https://wintex.pro/ru/' data-image='https://wintex.pro/img/ogimage.png'  )
         div(class='okno' id='congrad')
             div( id="ok1" class="alert" role="alert")
-                img.modal-img(src="/game/media/star.png", alt="")
+                img.modal-img(src="/media/star.png", alt="")
                 form
                     .form-group.box
                       div(class="input-group-prepend")
@@ -51,9 +51,9 @@ html
                       div(class="input-group-prepend")
                       input#wallet.form-control(type='text', placeholder='Ваш кошелёк')
 
-                    img.modal-img(src="/game/media/send.png" onclick="$('#ok1').css('display','none');" + "$('#ok2').css('display', 'block');" +
+                    img.modal-img(src="/media/send.png" onclick="$('#ok1').css('display','none');" + "$('#ok2').css('display', 'block');" +
                     "$.ajax({type: 'POST', url: '/game/send',data: {\"name\": $('#namme').val() , \"email\": $('#mail').val(), \"wallet\": $('#wallet').val()}}); return false;")
             div(id="ok2" class="alert" role="alert" )
                 form
-                    img.modal-img(src="/game/media/heart.png", alt="")
+                    img.modal-img(src="/media/heart.png", alt="")
                     p(id="support") Самое сложное позади, готовим золото к отправке. По всем вопросам - support@wintex.pro
